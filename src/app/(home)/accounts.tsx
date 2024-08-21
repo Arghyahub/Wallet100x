@@ -48,10 +48,11 @@ const Accounts = (props: Props) => {
       );
 
       //   Ethereum
-      const pathEth = `m/44'/60'/0'/0/${i}`;
+      const pathEth = `m/44'/60'/${i}'/0'`;
       const accountEth = ethers.HDNodeWallet.fromSeed(seed).derivePath(pathEth);
-      const publicEth = accountEth.publicKey;
       const privateEth = accountEth.privateKey;
+      const wallet = new ethers.Wallet(privateEth);
+      const publicEth = wallet.address;
 
       createAccounts.push({
         name: `Account ${i + 1}`,
