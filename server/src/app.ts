@@ -7,11 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const CLIENT = process.env.CLIENT || "http://localhost:3000";
 
-app.use(
-  cors({
-    origin: [CLIENT],
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
