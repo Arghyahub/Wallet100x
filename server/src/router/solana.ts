@@ -1,4 +1,5 @@
 import { Router } from "express";
+import config from "../constants";
 
 const router = Router();
 
@@ -11,7 +12,7 @@ router.get("/balance/:address/:networkType", async (req, res) => {
   console.log(req.params);
   try {
     const resp = await fetch(
-      `https://solana-${networkType}.g.alchemy.com/v2/demo`,
+      `https://solana-${networkType}.g.alchemy.com/v2/${config.API_KEY}`,
       {
         method: "POST",
         headers: {

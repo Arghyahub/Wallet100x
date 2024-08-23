@@ -1,4 +1,5 @@
 import { Router } from "express";
+import config from "../constants";
 
 const router = Router();
 
@@ -10,7 +11,7 @@ router.get("/balance/:address/:networkType", async (req, res) => {
   const { address, networkType } = req.params;
   try {
     const resp = await fetch(
-      `https://eth-${networkType}.g.alchemy.com/v2/demo`,
+      `https://eth-${networkType}.g.alchemy.com/v2/${config.API_KEY}`,
       {
         method: "POST",
         headers: {
@@ -24,10 +25,6 @@ router.get("/balance/:address/:networkType", async (req, res) => {
         }),
       }
     );
-
-    if (!resp.ok) {
-      console.log("Server Error", resp);
-    }
 
     const data = await resp.json();
 
