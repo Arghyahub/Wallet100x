@@ -11,7 +11,7 @@ const Home = (props: Props) => {
   return (
     <div className="flex flex-col items-center bg-[#282828] w-full h-[100svh]">
       <Navbar />
-      <div className="flex flex-col gap-3 border-white px-5 md:px-3 py-5 w-full md:max-w-[1000px] h-full text-white">
+      <div className="flex flex-col gap-3 border-white px-5 md:px-3 py-5 w-full md:max-w-[1000px] h-[calc(100svh-60px)] text-white">
         <ConnectionCheck />
         <h1 className="w-full font-semibold text-2xl text-center md:text-4xl">
           Welcome to{" "}

@@ -10,7 +10,7 @@ router.get("/balance/:address/:networkType", async (req, res) => {
   const { address, networkType } = req.params;
   try {
     const resp = await fetch(
-      `https://eth-${networkType}.g.alchemy.com/v2/7p8oP0DmCSp_kCr81tcLO4WyFcC4mEKX`,
+      `https://eth-${networkType}.g.alchemy.com/v2/demo`,
       {
         method: "POST",
         headers: {

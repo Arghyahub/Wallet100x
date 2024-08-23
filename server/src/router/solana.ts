@@ -11,7 +11,7 @@ router.get("/balance/:address/:networkType", async (req, res) => {
   console.log(req.params);
   try {
     const resp = await fetch(
-      `https://solana-${networkType}.g.alchemy.com/v2/7p8oP0DmCSp_kCr81tcLO4WyFcC4mEKX`,
+      `https://solana-${networkType}.g.alchemy.com/v2/demo`,
       {
         method: "POST",
         headers: {

@@ -129,8 +129,10 @@ const Accounts = (props: Props) => {
       } catch (error) {
         console.log(error);
       }
-      BalanceRelationCpy[solToken.publicKey] = solBalance / LAMPORTS_PER_SOL;
-      BalanceRelationCpy[ethToken.publicKey] = Number(ethBalance) / 1e18;
+      if (solBalance != -1)
+        BalanceRelationCpy[solToken.publicKey] = solBalance / LAMPORTS_PER_SOL;
+      if (ethBalance != -1)
+        BalanceRelationCpy[ethToken.publicKey] = Number(ethBalance) / 1e18;
     }
     console.log(BalanceRelationCpy);
     setBalanceRelation(BalanceRelationCpy);
@@ -188,7 +190,7 @@ const Accounts = (props: Props) => {
   if (!mnemonic) return <></>;
 
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex flex-col w-full h-full overflow-hidden">
       <div className="flex md:flex-row flex-col justify-between items-center my-2 w-full">
         <h1 className="mb-2 w-full text-start text-xl">Accounts</h1>
         <div className="flex flex-row gap-2">
@@ -208,11 +210,11 @@ const Accounts = (props: Props) => {
             variant={"destructive"}
             className="px-2 py-1 text-[10px] sm:text-xs md:text-base"
           >
-            Delete Mnemonic
+            Delete Wallets
           </Button>
         </div>
       </div>
-      <div className="flex flex-col mt-1 w-full h-full max-h-[48svh] md:max-h-[53svh] overflow-y-auto">
+      <div className="flex flex-col mt-1 w-full h-full overflow-y-auto">
         {accounts.map((account, index) => (
           <div
             key={index}
