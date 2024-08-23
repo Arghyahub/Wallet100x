@@ -25,6 +25,10 @@ router.get("/balance/:address/:networkType", async (req, res) => {
       }
     );
 
+    if (!resp.ok) {
+      console.log("Server Error", resp);
+    }
+
     const data = await resp.json();
 
     if (!resp.ok) {
